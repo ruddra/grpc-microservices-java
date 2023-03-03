@@ -1,0 +1,3 @@
+com\grpcflix\user\entity\User.class
+com\grpcflix\user\repository\UserRepository.class
+com\grpcflix\user\UserApplication.class

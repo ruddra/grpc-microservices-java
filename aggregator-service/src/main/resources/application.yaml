@@ -1,0 +1,12 @@
+grpc:
+  client:
+    user-service:
+      address: static://localhost:6565
+      negotiationType: TLS
+      security:
+        trustCertCollection: file:C:\\Users\\arnab.shil\\IdeaProjects\\grpc-into\\src\\main\\ssl\\ca.cert.pem
+    movie-service:
+      address: static://localhost:7575
+      negotiationType: TLS
+      security:
+        trustCertCollection: file:C:\\Users\\arnab.shil\\IdeaProjects\\grpc-into\\src\\main\\ssl\\ca.cert.pem
