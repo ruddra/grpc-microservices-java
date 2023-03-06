@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.net.ssl.SSLException;
 import java.util.List;
 
 @RestController
@@ -17,12 +18,12 @@ public class AggregatorController {
     private UserMovieService userMovieService;
 
     @GetMapping("/user/{loginId}")
-    public List<RecommendedMovie> getMovies(@PathVariable String loginId){
+    public List<RecommendedMovie> getMovies(@PathVariable String loginId) throws SSLException {
         return this.userMovieService.getUserMovieSuggestions(loginId);
     }
 
     @PutMapping("/users")
-    public ResponseEntity<Object> setUserGenre(@RequestBody UserGenre userGenre){
+    public ResponseEntity<Object> setUserGenre(@RequestBody UserGenre userGenre) throws SSLException {
         this.userMovieService.setUserGenreObject(userGenre);
         return new ResponseEntity<>(null, HttpStatus.OK);
     }

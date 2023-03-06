@@ -2,6 +2,9 @@ package com.grpcflix.aggregator.service;
 
 import com.grpcflix.aggregator.dto.RecommendedMovie;
 import com.grpcflix.aggregator.dto.UserGenre;
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.DiscoveryClient;
+import com.netflix.discovery.EurekaClient;
 import com.vinsguru.grpcflix.movie.Genre;
 import com.vinsguru.grpcflix.movie.MovieSearchRequest;
 import com.vinsguru.grpcflix.movie.MovieSearchResponse;
@@ -13,6 +16,7 @@ import com.vinsguru.grpcflix.user.UserServiceGrpc;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
 
+import javax.net.ssl.SSLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,24 +28,24 @@ public class UserMovieService {
     @GrpcClient("movie-service")
     private MovieServiceGrpc.MovieServiceBlockingStub movieStub;
 
-
-    public List<RecommendedMovie> getUserMovieSuggestions(String loginId){
+    public List<RecommendedMovie> getUserMovieSuggestions(String loginId) throws SSLException {
         UserSearchRequest userSearchRequest = UserSearchRequest.newBuilder().setLoginId(loginId).build();
-        UserResponse userResponse = this.userStub.getUserGenre(userSearchRequest);
+//        System.out.println(userStub.toString());
+        UserResponse userResponse = userStub.getUserGenre(userSearchRequest);
         MovieSearchRequest movieSearchRequest = MovieSearchRequest.newBuilder().setGenre(userResponse.getGenre()).build();
-        MovieSearchResponse movieSearchResponse = this.movieStub.getMovies(movieSearchRequest);
+        MovieSearchResponse movieSearchResponse = movieStub.getMovies(movieSearchRequest);
         return movieSearchResponse.getMovieList()
                 .stream()
                 .map(movieDto -> new RecommendedMovie(movieDto.getTitle(), movieDto.getYear(), movieDto.getRating()))
                 .collect(Collectors.toList());
     }
 
-    public void setUserGenreObject(UserGenre userGenre) {
+    public void setUserGenreObject(UserGenre userGenre) throws SSLException {
         UserGenreUpdateRequest userGenreUpdateRequest = UserGenreUpdateRequest.newBuilder()
                 .setGenre(Genre.valueOf(userGenre.getGenre().toUpperCase()))
                 .setLoginId(userGenre.getLoginId())
                 .build();
 
-        UserResponse userResponse = this.userStub.updateUserGenre(userGenreUpdateRequest);
+        UserResponse userResponse = userStub.updateUserGenre(userGenreUpdateRequest);
     }
 }

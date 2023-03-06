@@ -1,12 +1,23 @@
 grpc:
   client:
     user-service:
-      address: static://localhost:6565
-      negotiationType: TLS
+#      address: static://localhost:6565
+      negotiationType: tls
       security:
-        trustCertCollection: file:C:\\Users\\arnab.shil\\IdeaProjects\\grpc-into\\src\\main\\ssl\\ca.cert.pem
+        trustCertCollection: file:C:\\Users\\arnab.shil\\IdeaProjects\\gRPC-flix-new\\ssl\\user-service\\ca.cert.pem
     movie-service:
-      address: static://localhost:7575
-      negotiationType: TLS
+#      address: static://localhost:7575
+      negotiationType: tls
       security:
-        trustCertCollection: file:C:\\Users\\arnab.shil\\IdeaProjects\\grpc-into\\src\\main\\ssl\\ca.cert.pem
+        trustCertCollection: file:C:\\Users\\arnab.shil\\IdeaProjects\\gRPC-flix-new\\ssl\\movie-service\\ca.cert.pem
+
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: "aggregator-service"
+
+debug: true
