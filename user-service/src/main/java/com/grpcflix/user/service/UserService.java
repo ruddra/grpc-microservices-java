@@ -2,11 +2,11 @@
 package com.grpcflix.user.service;
 
 import com.grpcflix.user.repository.UserRepository;
-import com.vinsguru.grpcflix.movie.Genre;
-import com.vinsguru.grpcflix.user.UserGenreUpdateRequest;
-import com.vinsguru.grpcflix.user.UserResponse;
-import com.vinsguru.grpcflix.user.UserSearchRequest;
-import com.vinsguru.grpcflix.user.UserServiceGrpc;
+import org.example.grpcflix.movie.Genre;
+import org.example.grpcflix.user.UserGenreUpdateRequest;
+import org.example.grpcflix.user.UserResponse;
+import org.example.grpcflix.user.UserSearchRequest;
+import org.example.grpcflix.user.UserServiceGrpc;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;

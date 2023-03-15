@@ -1,10 +1,10 @@
 package com.grpcflix.movie.service;
 
 import com.grpcflix.movie.repository.MovieRepository;
-import com.vinsguru.grpcflix.movie.MovieDto;
-import com.vinsguru.grpcflix.movie.MovieSearchRequest;
-import com.vinsguru.grpcflix.movie.MovieSearchResponse;
-import com.vinsguru.grpcflix.movie.MovieServiceGrpc;
+import org.example.grpcflix.movie.MovieDto;
+import org.example.grpcflix.movie.MovieSearchRequest;
+import org.example.grpcflix.movie.MovieSearchResponse;
+import org.example.grpcflix.movie.MovieServiceGrpc;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;

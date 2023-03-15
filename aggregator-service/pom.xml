@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>grpc-flix</artifactId>
-        <groupId>com.vinsguru</groupId>
+        <groupId>org.example</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -26,7 +26,7 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>com.vinsguru</groupId>
+            <groupId>org.example</groupId>
             <artifactId>proto</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<artifactId>grpc-flix</artifactId>
-		<groupId>com.vinsguru</groupId>
+		<groupId>org.example</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>eureka-service</artifactId>

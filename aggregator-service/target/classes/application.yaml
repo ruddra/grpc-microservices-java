@@ -1,12 +1,10 @@
 grpc:
   client:
     user-service:
-#      address: static://localhost:6565
       negotiationType: tls
       security:
         trustCertCollection: file:C:\\Users\\arnab.shil\\IdeaProjects\\gRPC-flix-new\\ssl\\user-service\\ca.cert.pem
     movie-service:
-#      address: static://localhost:7575
       negotiationType: tls
       security:
         trustCertCollection: file:C:\\Users\\arnab.shil\\IdeaProjects\\gRPC-flix-new\\ssl\\movie-service\\ca.cert.pem
