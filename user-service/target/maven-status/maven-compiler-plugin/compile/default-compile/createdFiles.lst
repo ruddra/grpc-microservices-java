@@ -1,3 +1,4 @@
-com\grpcflix\user\entity\User.class
-com\grpcflix\user\repository\UserRepository.class
 com\grpcflix\user\UserApplication.class
+com\grpcflix\user\entity\User.class
+com\grpcflix\user\service\UserService.class
+com\grpcflix\user\repository\UserRepository.class

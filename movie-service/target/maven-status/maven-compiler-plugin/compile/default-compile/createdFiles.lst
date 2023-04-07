@@ -1,0 +1,4 @@
+com\grpcflix\movie\service\MovieService.class
+com\grpcflix\movie\MovieApplication.class
+com\grpcflix\movie\repository\MovieRepository.class
+com\grpcflix\movie\entity\Movie.class

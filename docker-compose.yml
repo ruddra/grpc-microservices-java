@@ -1,0 +1,59 @@
+version: "3"
+
+services:
+  aggregator-service:
+    image: aggservice
+    build:
+      context: .
+      dockerfile: aggregator-service/Dockerfile
+    container_name: agg01
+    ports:
+      - "8080:8080"
+    depends_on:
+      - movie_service
+      - user_service
+      - eureka_service
+    networks:
+      - grpcnetwork
+  movie_service:
+    image: movieservice
+    build:
+      context: .
+      dockerfile: movie-service/Dockerfile
+    container_name: mov1
+    ports:
+      - "8081:8081"
+    depends_on:
+      - eureka_service
+    volumes:
+      - ./movie-service/target/movie-service-0.0.1-SNAPSHOT.jar:/app/app.jar
+    networks:
+      - grpcnetwork
+  user_service:
+    build:
+      context: .
+      dockerfile: user-service/Dockerfile
+    image: userservice
+    container_name: usr01
+    ports:
+      - "8082:8082"
+    depends_on:
+      - eureka_service
+    networks:
+      - grpcnetwork
+  eureka_service:
+    build:
+      context: .
+      dockerfile: eureka-service/Dockerfile
+    image: eurekaservice
+    container_name: eur01
+    ports:
+      - "8761:8761"
+
+    networks:
+      - grpcnetwork
+
+
+networks:
+  grpcnetwork:
+    driver: bridge

@@ -1,0 +1,5 @@
+com\grpcflix\aggregator\dto\RecommendedMovie.class
+com\grpcflix\aggregator\controller\AggregatorController.class
+com\grpcflix\aggregator\AggregatorApplication.class
+com\grpcflix\aggregator\service\UserMovieService.class
+com\grpcflix\aggregator\dto\UserGenre.class
